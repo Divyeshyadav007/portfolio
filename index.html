@@ -40,10 +40,62 @@
             background-clip: text;
         }
 
+        /* ====== TOP BAR ====== */
+        .topbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+            background: var(--gradient);
+            padding: 9px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            color: rgba(255,255,255,0.95);
+        }
+        .topbar-dot {
+            width: 8px;
+            height: 8px;
+            background: #7ef5a0;
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: tb-pulse 2s ease-in-out infinite;
+        }
+        @keyframes tb-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(126,245,160,0.8); }
+            60%       { box-shadow: 0 0 0 5px rgba(126,245,160,0); }
+        }
+        .topbar-name { font-weight: 600; }
+        .topbar-role { opacity: 0.78; font-weight: 400; margin-left: 4px; }
+        .topbar-right { display: flex; align-items: center; gap: 14px; }
+        .topbar-right a {
+            color: rgba(255,255,255,0.92);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.2s;
+        }
+        .topbar-right a:hover { opacity: 0.7; }
+        .topbar-right svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
+        .topbar-sep { color: rgba(255,255,255,0.3); font-size: 0.9rem; }
+        @media (max-width: 480px) {
+            .topbar-role { display: none; }
+            .topbar-phone-text { display: none; }
+            .topbar-sep { display: none; }
+        }
+
         /* ====== NAVIGATION ====== */
         nav {
             position: fixed;
-            top: 0;
+            top: 36px;
             width: 100%;
             z-index: 1000;
             padding: 20px 5%;
@@ -121,7 +173,7 @@
             display: flex;
             align-items: center;
             position: relative;
-            padding: 120px 5% 80px;
+            padding: 158px 5% 80px;
             overflow: hidden;
         }
 
@@ -1108,7 +1160,7 @@
                 display: flex;
                 flex-direction: column;
                 position: fixed;
-                top: 70px; left: 0; right: 0;
+                top: 106px; left: 0; right: 0;
                 background: rgba(248,245,255,0.99);
                 padding: 28px 5%;
                 gap: 20px;
@@ -1125,6 +1177,26 @@
     </style>
 </head>
 <body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="topbar-left">
+        <div class="topbar-dot"></div>
+        <span class="topbar-name">Divyesh Yadav</span>
+        <span class="topbar-role">· Web Designer</span>
+    </div>
+    <div class="topbar-right">
+        <a href="tel:+918529160552">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            <span class="topbar-phone-text">+91 85291 60552</span>
+        </a>
+        <span class="topbar-sep">|</span>
+        <a href="https://wa.me/918529160552" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+        </a>
+    </div>
+</div>
 
 <!-- NAVIGATION -->
 <nav id="navbar">
@@ -1498,16 +1570,16 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Your Name</label>
-                        <input type="text" placeholder="Rahul Sharma" required>
+                        <input type="text" name="from_name" placeholder="Rahul Sharma" required>
                     </div>
                     <div class="form-group">
                         <label>Email Address</label>
-                        <input type="email" placeholder="rahul@email.com" required>
+                        <input type="email" name="from_email" placeholder="rahul@email.com" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>What do you need?</label>
-                    <select>
+                    <select name="service">
                         <option value="">Select a service...</option>
                         <option>Website Design</option>
                         <option>Landing Page</option>
@@ -1517,7 +1589,7 @@
                 </div>
                 <div class="form-group">
                     <label>Tell me about your project</label>
-                    <textarea placeholder="Describe your project, budget, and timeline..."></textarea>
+                    <textarea name="message" placeholder="Describe your project, budget, and timeline..."></textarea>
                 </div>
                 <button type="submit" class="btn-primary" id="submitBtn" style="width:100%; justify-content:center; border:none;">
                     Send Message &rarr;
@@ -1597,19 +1669,46 @@
     const heroStats = document.querySelector('.hero-stats');
     if (heroStats) statsObserver.observe(heroStats);
 
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
+    // ── Formspree ── Replace YOUR_FORM_ID after creating form at formspree.io ──
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         const btn = document.getElementById('submitBtn');
         const orig = btn.innerHTML;
-        btn.innerHTML = 'Message Sent! &#10003;';
-        btn.style.background = 'linear-gradient(135deg, #7ecba4, #a8e6c8)';
-        btn.style.color = '#081510';
-        setTimeout(() => {
-            btn.innerHTML = orig;
-            btn.style.background = '';
-            btn.style.color = '';
-            this.reset();
-        }, 3000);
+        btn.innerHTML = 'Sending&hellip;';
+        btn.disabled = true;
+        btn.style.opacity = '0.75';
+
+        try {
+            const res = await fetch('https://formspree.io/f/mdajzqrg', {
+                method: 'POST',
+                body: new FormData(this),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+                btn.innerHTML = 'Message Sent! &#10003;';
+                btn.style.background = 'linear-gradient(135deg, #7ecba4, #a8e6c8)';
+                btn.style.color = '#081510';
+                btn.style.opacity = '1';
+                setTimeout(() => {
+                    btn.innerHTML = orig;
+                    btn.style.cssText = '';
+                    btn.disabled = false;
+                    this.reset();
+                }, 3000);
+            } else {
+                throw new Error();
+            }
+        } catch {
+            btn.innerHTML = 'Failed — Try Again';
+            btn.style.background = '#c84820';
+            btn.style.color = '#fff';
+            btn.style.opacity = '1';
+            btn.disabled = false;
+            setTimeout(() => {
+                btn.innerHTML = orig;
+                btn.style.cssText = '';
+            }, 3000);
+        }
     });
 </script>
 </body>
